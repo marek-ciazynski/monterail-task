@@ -12,14 +12,15 @@
     "dev": "fastify start -w -l info -P app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marek Ciążyński",
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.0.0",
-    "fastify-plugin": "^3.0.0",
     "fastify-autoload": "^3.10.0",
+    "fastify-cli": "^2.15.0",
+    "fastify-plugin": "^3.0.0",
     "fastify-sensible": "^3.1.2",
-    "fastify-cli": "^2.15.0"
+    "fastify-swagger": "^5.1.1"
   },
   "devDependencies": {
     "tap": "^15.1.6"
