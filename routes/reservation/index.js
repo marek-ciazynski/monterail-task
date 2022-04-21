@@ -3,7 +3,7 @@
 module.exports = async function (fastify, opts) {
 	fastify.get('/', {
 		schema: {
-            description: 'This is an endpoint for application health check',
+            description: 'Retrieves list of all reservations. Returns empty list when no reservations found.',
 			tags: ['reservation'],
 			response: {
 				200: {
