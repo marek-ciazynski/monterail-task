@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -6,9 +6,9 @@ module.exports = {
      * Add altering commands here.
      *
      * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER })
      */
-	const transaction = await queryInterface.sequelize.transaction();
+	const transaction = await queryInterface.sequelize.transaction()
 	try {
 		await queryInterface.addColumn(
 			'events',
@@ -23,7 +23,7 @@ module.exports = {
 				onDelete: 'SET NULL',
 			},
 			{ transaction }
-		);
+		)
 
 		await queryInterface.addColumn(
 			'reservations',
@@ -38,7 +38,7 @@ module.exports = {
 				onDelete: 'SET NULL',
 			},
 			{ transaction }
-		);
+		)
 
 		await queryInterface.addColumn(
 			'reservation_tickets',
@@ -53,11 +53,11 @@ module.exports = {
 				onDelete: 'SET NULL',
 			},
 			{ transaction }
-		);
+		)
 		
-		transaction.commit();
+		transaction.commit()
 	} catch (err) {
-		transaction.rollback();
+		transaction.rollback()
 	}
   },
 
@@ -66,16 +66,16 @@ module.exports = {
      * Add reverting commands here.
      *
      * Example:
-     * await queryInterface.dropTable('users');
+     * await queryInterface.dropTable('users')
      */
-	const transaction = await Sequelize.transaction();
+	const transaction = await Sequelize.transaction()
 	try {
 		await queryInterface.removeColumn('events', 'event_place_id')
 		await queryInterface.removeColumn('reservations', 'event_id')
 		await queryInterface.removeColumn('reservation_tickets', 'reservation_id')
-		transaction.commit();
+		transaction.commit()
 	} catch (err) {
-		transaction.rollback();
+		transaction.rollback()
 	}
   }
-};
+}

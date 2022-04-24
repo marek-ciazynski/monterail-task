@@ -3,6 +3,11 @@
 const path = require('path')
 const AutoLoad = require('fastify-autoload')
 
+require('module-alias/register')
+
+// const config = require('./config')
+// console.log(config)
+
 module.exports = async function (fastify, opts) {
 	// Place here your custom code!
 

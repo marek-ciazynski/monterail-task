@@ -1,5 +1,7 @@
 'use strict'
 
+const reservationService = require('@app/service/reservation.service')
+
 module.exports = async function (fastify, opts) {
 	fastify.get('/', {
 		schema: {
@@ -34,16 +36,7 @@ module.exports = async function (fastify, opts) {
 		},
 	},
 	async (request, reply) => {
-		return [{
-			id: 123,
-			eventId: 1,
-			status: 'reserved',
-			quantity: 1,
-			totalCost: 19.99,
-			event: {
-				name: 'Example event'
-			}
-		}]
+		return reservationService.getReservations()
 	})
 
 	fastify.post('/', {
@@ -92,10 +85,10 @@ module.exports = async function (fastify, opts) {
 			},
 		},
 	}, async (request, reply) => {
-		// throw fastify.httpErrors.badRequest('Seats are not available for reservation');
-		// throw fastify.httpErrors.notFound('Event not found');
+		// throw fastify.httpErrors.badRequest('Seats are not available for reservation')
+		// throw fastify.httpErrors.notFound('Event not found')
 
-		const { tickets, eventId } = request.body;
-		return { message: `Reservation made for event ${eventId} for seat (${tickets[0].row},${tickets[0].seat})` };
+		const { tickets, eventId } = request.body
+		return { message: `Reservation made for event ${eventId} for seat (${tickets[0].row},${tickets[0].seat})` }
 	})	
 }

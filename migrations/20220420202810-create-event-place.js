@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.createTable('event_places', {
@@ -31,9 +31,9 @@ module.exports = {
 				allowNull: false,
 				type: Sequelize.DATE
 			}
-		});
+		})
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable('event_places');
+		await queryInterface.dropTable('event_places')
 	}
-};
+}

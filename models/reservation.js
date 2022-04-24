@@ -1,5 +1,5 @@
-'use strict';
-const { Model } = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
 	class Reservation extends Model {
@@ -9,10 +9,19 @@ module.exports = (sequelize, DataTypes) => {
 		 * The `models/index` file will call this method automatically.
 		 */
 		static associate(models) {
-			this.belongsTo(models.Event);
-			this.hasMany(models.ReservationTicket);
+			this.belongsTo(models.Event)
+			this.hasMany(models.ReservationTicket)
+		}
+
+		/**
+		 * Finds all valid reservations that aren't expired (reserved longer than 15 min ago)
+		 */
+		static findValidReservations() {
+			const reservations = this.findAll();
+			return reservations;
 		}
 	}
+
 	Reservation.init({
 		clientName: {
 			type: DataTypes.STRING,
@@ -30,6 +39,6 @@ module.exports = (sequelize, DataTypes) => {
 		sequelize,
 		modelName: 'Reservation',
 		underscored: true,
-	});
-	return Reservation;
-};
+	})
+	return Reservation
+}

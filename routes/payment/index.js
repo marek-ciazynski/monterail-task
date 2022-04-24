@@ -1,6 +1,6 @@
 'use strict'
 
-const { EventPlace, Event } = require("../../models");
+const { EventPlace, Event } = require("@app/models")
 
 module.exports = async function (fastify, opts) {
 	fastify.get('/:reservationId', {
@@ -46,7 +46,7 @@ module.exports = async function (fastify, opts) {
 
 		reply.code(303).send({
 			message: 'Redirecting to payment gateway. to pay for reservation id='+request.params.reservationId,
-		});
+		})
 	})
 
 }
