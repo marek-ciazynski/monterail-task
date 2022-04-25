@@ -1,12 +1,6 @@
 # Ticketworld API
 This project was bootstrapped with Fastify-CLI.
 
-## TODO
-some notes on running;
-Swagger;
-events and event_places are to be inserted manually into DB and example data is in seeder; in the furure there could be "Admin API" for this or simple npm script at the begining like "npm run event:add -- <event_info>"
-how to setup Postgres, run seeder & migrations
-
 ## Getting started
 1. First, you need to prepare PostgreSQL database. Create a user and database using `psql`
 ```
